@@ -50,20 +50,22 @@ handleButtonClick(event){
         this.tableBody.innerHTML = '';
 
         const completeButton = document.createElement('button');
-        completeButton.classList.add('btn-sucess');
+        completeButton.classList.add('button');
 
         for (let task of this.tasks){
             const row = document.createElement('tr');
             const taskCell = document.createElement('td');
             const completeCell = document.createElement('td');
+            const actionCell = document.createElement('td');
 
             row.append(taskCell);
             row.append(completeCell);
+            row.append(actionCell);
         
             this.tableBody.append(row);
 
             taskCell.innerHTML = task.title;
-            completeCell.innerHTML = completeButton;
+            completeCell.append(completeButton);
 
         }
     }
