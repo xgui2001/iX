@@ -12,3 +12,47 @@ const movies = [
     {title: 'The Lord Of The Rings', explanation: 'In this movie some small guys go for a walk...', hint: 'You will not vacate past this exact position'}
    ]
    
+const guessInput = document.getElementById('guess');
+const cardBody = document.getElementById('card-body');
+const explanationBody = document.getElementById('explaination-text');
+const hintBody = document.getElementById('hint-text');
+
+//random movie explanation generator
+const random = Math.floor(Math.random() * movies.length);
+console.log(random, movies[random].explanation);
+
+const randomExplaination = document.createElement('div');
+randomExplaination.innerHTML = movies[random].explanation;
+explanationBody.append(randomExplaination);
+
+submitButton.addEventListener('click', (event)=>{
+    var guessTitle = guessInput.value;
+    if (guessTitle == movies[random].title){
+        
+        const resultDiv = document.createElement('div');
+        resultDiv.innerHTML = "Well done! You guessed it right"
+
+        resultDiv.classList.add('alert');
+        resultDiv.classList.add('alert-primary');
+        resultDiv.classList.add('mt-4');
+
+        cardBody.append(resultDiv);
+    }
+    else {
+        const wrongDiv = document.createElement('div');
+        wrongDiv.innerHTML = "Try again! If you need a hint, press the hint button"
+
+        wrongDiv.classList.add('alert');
+        wrongDiv.classList.add('alert-warning');
+        wrongDiv.classList.add('mt-4');
+
+        cardBody.append(wrongDiv);
+    }
+})
+
+hintButton.addEventListener('click', (event)=>{
+    const randomHint = document.createElement('div');
+    randomHint.innerHTML = movies[random].hint;
+
+    hintBody.append(randomHint);
+})
