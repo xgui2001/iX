@@ -1,5 +1,5 @@
 //fibonacci sequence function
-function fibonacciTen(){
+function fibonacci(){
 
     var numberOne = 0;
     var numberTwo = 1;

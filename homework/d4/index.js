@@ -19,8 +19,6 @@ const hintBody = document.getElementById('hint-text');
 
 //random movie explanation generator
 const random = Math.floor(Math.random() * movies.length);
-console.log(random, movies[random].explanation);
-
 const randomExplaination = document.createElement('div');
 randomExplaination.innerHTML = movies[random].explanation;
 explanationBody.append(randomExplaination);
